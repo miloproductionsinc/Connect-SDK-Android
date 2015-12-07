@@ -2,10 +2,6 @@
 	path = modules/google_cast
 	url = https://github.com/AspiroTV/Connect-SDK-Android-Google-Cast.git
 	branch = master
-[submodule "modules/orange_cast"]
-	path = modules/orange_cast
-	url = https://github.com/AspiroTV/Connect-SDK-Android-Orange-Cast.git
-	branch = master
 [submodule "core"]
 	path = core
 	url = https://github.com/AspiroTV/Connect-SDK-Android-Core.git
@@ -13,4 +9,10 @@
 [submodule "modules/firetv"]
 	path = modules/firetv
 	url = https://github.com/ConnectSDK/Connect-SDK-Android-FireTV.git
-    branch = master
+	branch = master
+[submodule "modules/orange_cast"]
+
+	path = modules/orange_cast
+
+	url = https://github.com/AspiroTV/Connect-SDK-Android-Orange-Cast
+	branch = master
