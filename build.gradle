@@ -86,7 +86,6 @@ android {
         main {
             manifest.srcFile 'AndroidManifest.xml'
             java.srcDirs = [
-                    'src',
                     'core/src'
             ]
             resources.srcDirs = ['src']
@@ -98,12 +97,14 @@ android {
 
         chromecast {
             java.srcDirs = [
+                    'src',
                     'modules/google_cast/src',
             ]
         }
 
         orangechromecast {
             java.srcDirs = [
+                    'src_all',
                     'modules/google_cast/src',
                     'modules/orange_cast/src'
             ]
@@ -112,7 +113,6 @@ android {
             java.srcDirs = [
                     'core/test/src',
                     'modules/google_cast/test/src',
-                    'modules/orange_cast/test/src'
             ]
         }
     }
