@@ -83,6 +83,8 @@ android {
         }
         orangechromecast {
         }
+        basecast {
+        }
     }
 
     sourceSets {
@@ -90,7 +92,7 @@ android {
             manifest.srcFile 'AndroidManifest.xml'
             java.srcDirs = [
                     'core/src',
-                    'modules/google_cast/src'
+
             ]
             resources.srcDirs = ['src']
             aidl.srcDirs = ['src']
@@ -99,10 +101,18 @@ android {
             assets.srcDirs = ['assets']
         }
 
-        chromecast {
+        basecast {
 
             java.srcDirs = [
                     'src'
+            ]
+        }
+
+        chromecast {
+
+            java.srcDirs = [
+                    'src_chromecast',
+                    'modules/google_cast/src'
             ]
         }
         orangechromecast {
@@ -144,10 +154,15 @@ dependencies {
     compile files('core/libs/java-websocket-patch.jar')
     compile files('core/libs/javax.jmdns_3.4.1-patch2.jar')
 
-    compile 'com.android.support:support-v4:22.2.0'
-    compile 'com.android.support:appcompat-v7:22.2.0'
-    compile 'com.android.support:mediarouter-v7:21.0.0'
-    compile 'com.google.android.gms:play-services-cast:7.5.0'
+    chromecastCompile 'com.android.support:support-v4:22.2.0'
+    chromecastCompile 'com.android.support:appcompat-v7:22.2.0'
+    chromecastCompile 'com.android.support:mediarouter-v7:21.0.0'
+    chromecastCompile 'com.google.android.gms:play-services-cast:7.5.0'
+
+    orangechromecastCompile 'com.android.support:support-v4:22.2.0'
+    orangechromecastCompile 'com.android.support:appcompat-v7:22.2.0'
+    orangechromecastCompile 'com.android.support:mediarouter-v7:21.0.0'
+    orangechromecastCompile 'com.google.android.gms:play-services-cast:7.5.0'
 
     orangechromecastCompile (name:'libWebSocket', ext:'aar')
     orangechromecastCompile files('modules/orange_cast/libs/androidasync-1.3.8.jar')
