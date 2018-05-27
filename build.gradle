@@ -97,6 +97,8 @@ android {
             abortOnError false
         }
     }
+
+    useLibrary 'org.apache.http.legacy'
 }
 
 android.testOptions.unitTests.all {
