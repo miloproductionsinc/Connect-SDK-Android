@@ -112,7 +112,7 @@ dependencies {
     implementation 'com.android.support:support-v4:27.1.1'
     implementation 'com.android.support:appcompat-v7:27.1.1'
     implementation 'com.android.support:mediarouter-v7:27.1.1'
-    implementation 'com.google.android.gms:play-services-cast:15.0.0'
+    implementation 'com.google.android.gms:play-services-cast:15.0.1'
 
     // testCompile 'org.apache.maven:maven-ant-tasks:2.1.3'
     // testCompile 'junit:junit:4.12'
