@@ -4,7 +4,7 @@
 	branch = master
 [submodule "core"]
 	path = core
-	url = https://github.com/toandrew/Connect-SDK-Android-Core.git
+	url = https://github.com/drobazko/Connect-SDK-Android-Core.git
 	branch = master
 [submodule "modules/firetv"]
 	path = modules/firetv
