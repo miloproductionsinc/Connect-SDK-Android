@@ -1,6 +1,6 @@
 [submodule "modules/google_cast"]
 	path = modules/google_cast
-	url = https://github.com/toandrew/Connect-SDK-Android-Google-Cast.git
+	url = https://github.com/drobazko/Connect-SDK-Android-Google-Cast.git
 	branch = master
 [submodule "core"]
 	path = core
