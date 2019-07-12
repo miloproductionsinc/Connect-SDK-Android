@@ -1,10 +1,10 @@
 [submodule "modules/google_cast"]
 	path = modules/google_cast
-	url = https://github.com/drobazko/Connect-SDK-Android-Google-Cast.git
+	url = https://github.com/andersonlucasg3/Connect-SDK-Android-Google-Cast.git
 	branch = master
 [submodule "core"]
 	path = core
-	url = https://github.com/drobazko/Connect-SDK-Android-Core.git
+	url = https://github.com/andersonlucasg3/Connect-SDK-Android-Core.git
 	branch = master
 [submodule "modules/firetv"]
 	path = modules/firetv
