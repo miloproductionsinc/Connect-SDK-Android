@@ -116,7 +116,7 @@ android.testOptions.unitTests.all {
 
 dependencies {
     implementation files('core/libs/Java-WebSocket-1.3.7.jar')
-    implementation files('core/libs/javax.jmdns_3.4.1-patch2.jar')
+    api files('core/libs/android-smartview-sdk-2.5.1.jar')
 
     implementation fileTree(dir: 'modules/firetv/libs', include: '*.jar')
 
