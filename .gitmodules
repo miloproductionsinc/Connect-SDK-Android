@@ -9,4 +9,4 @@
 [submodule "modules/firetv"]
 	path = modules/firetv
 	url = https://github.com/miloproductionsinc/Connect-SDK-Android-FireTV.git
-  branch = master_personal
+	branch = master_personal
