@@ -92,6 +92,10 @@ android {
             minifyEnabled false
         }
     }
+    defaultConfig {
+        minSdkVersion 10
+        targetSdkVersion 28
+    }
     android {
         lintOptions {
             abortOnError false
