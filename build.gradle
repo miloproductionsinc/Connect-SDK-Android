@@ -3,6 +3,7 @@ buildscript {
         mavenCentral()
         google()
         jcenter()
+        google()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.3.0'
@@ -16,6 +17,7 @@ allprojects {
             dirs 'modules/orange_cast/libs'
         }
         jcenter()
+        google()
     }
 }
 
@@ -99,7 +101,10 @@ android {
             resources.srcDirs = ['src']
             aidl.srcDirs = ['src']
             renderscript.srcDirs = ['src']
-            res.srcDirs = ['res']
+            res.srcDirs = [
+                    'res',
+                    'core/res'
+            ]
             assets.srcDirs = ['assets']
         }
 
@@ -149,6 +154,8 @@ android {
             abortOnError false
         }
     }
+
+    useLibrary 'org.apache.http.legacy'
 }
 
 android.testOptions.unitTests.all {
