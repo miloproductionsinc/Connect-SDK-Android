@@ -1,9 +1,11 @@
 buildscript {
     repositories {
+        mavenCentral()
+        google()
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:1.2.3'
+        classpath 'com.android.tools.build:gradle:3.3.0'
         classpath 'org.robolectric:robolectric-gradle-plugin:1.1.0'
     }
 }
@@ -29,8 +31,7 @@ allprojects {
 * */
 
 apply plugin: 'com.android.library'
-apply plugin: 'org.robolectric'
-apply plugin: "jacoco"
+apply plugin: 'jacoco'
 
 
 jacoco {
@@ -65,10 +66,11 @@ task jacocoTestReport(type:JacocoReport, dependsOn: "check") {
 build.dependsOn jacocoTestReport
 
 android {
-    compileSdkVersion 22
-    buildToolsVersion '22.0.1'
+    compileSdkVersion 28
     defaultPublishConfig "chromecast"
     publishNonDefault true
+
+    useLibrary 'org.apache.http.legacy'
 
     packagingOptions {
         exclude 'LICENSE.txt'
@@ -138,6 +140,10 @@ android {
             minifyEnabled false
         }
     }
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 28
+    }
     android {
         lintOptions {
             abortOnError false
@@ -146,34 +152,26 @@ android {
 }
 
 android.testOptions.unitTests.all {
-     include '**/*Test.class'
- }
+    include '**/*Test.class'
+}
 
 dependencies {
+    implementation files('core/libs/Java-WebSocket-1.3.7.jar')
+    implementation files('core/libs/javax.jmdns_3.4.1-patch2.jar')
 
-    compile files('core/libs/java-websocket-patch.jar')
-    compile files('core/libs/javax.jmdns_3.4.1-patch2.jar')
+    implementation fileTree(dir: 'modules/firetv/libs', include: '*.jar')
 
-    chromecastCompile 'com.android.support:support-v4:22.2.0'
-    chromecastCompile 'com.android.support:appcompat-v7:22.2.0'
-    chromecastCompile 'com.android.support:mediarouter-v7:21.0.0'
-    chromecastCompile 'com.google.android.gms:play-services-cast:7.5.0'
+    implementation 'com.android.support:support-v4:28.0.0'
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support:mediarouter-v7:28.0.0'
+    implementation 'com.google.android.gms:play-services-cast:7.8.0'
 
-    orangechromecastCompile 'com.android.support:support-v4:22.2.0'
-    orangechromecastCompile 'com.android.support:appcompat-v7:22.2.0'
-    orangechromecastCompile 'com.android.support:mediarouter-v7:21.0.0'
-    orangechromecastCompile 'com.google.android.gms:play-services-cast:7.5.0'
-
-    orangechromecastCompile (name:'libWebSocket', ext:'aar')
-    orangechromecastCompile files('modules/orange_cast/libs/androidasync-1.3.8.jar')
-    orangechromecastCompile (name:'orangecast-generic-1.0.1', ext:'aar')
-    orangechromecastCompile (name:'orangecast-sdk-1.0.1-dialRelease', ext:'aar')
-
-    testCompile 'org.apache.maven:maven-ant-tasks:2.1.3'
-    testCompile 'junit:junit:4.12'
-    testCompile 'org.robolectric:robolectric:2.4'
-    testCompile 'org.mockito:mockito-all:1.10.19'
-    testCompile 'org.powermock:powermock-api-mockito:1.6.2'
+    testImplementation 'org.apache.maven:maven-ant-tasks:2.1.3'
+    testImplementation 'junit:junit:4.12'
+    testImplementation 'org.robolectric:robolectric:2.4'
+    testImplementation 'org.mockito:mockito-all:1.10.19'
+    testImplementation 'org.powermock:powermock-api-mockito:1.6.2'
+    testImplementation 'xmlunit:xmlunit:1.4'
 }
 
 apply from: 'maven-push.gradle'
